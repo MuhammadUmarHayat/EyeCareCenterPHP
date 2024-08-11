@@ -1,0 +1,10 @@
+patient will request for appointment 
+Admin will approve or reject 
+
+4. **Appointment**
+   - `AppointmentID` (Primary Key)
+   - `PatientID` (Foreign Key to Patient)
+   - `DoctorID` (Foreign Key to Doctor)
+   - `AppointmentDate`
+   - `AppointmentTime`
+   - `Status` (Booked, Completed, Cancelled)
