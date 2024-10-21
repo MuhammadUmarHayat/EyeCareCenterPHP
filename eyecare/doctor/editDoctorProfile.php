@@ -9,8 +9,9 @@ $email = $_GET['id']; // Get the email from the URL
 
 $result = showUserProfile($email);
 // Check if the user exists
-if ($result->num_rows == 1) {
-    $user = $result->fetch_assoc();
+if ($result->num_rows == 1) 
+{
+    $user = $result->fetch_assoc();//fetch a single row or record
 } 
 else 
 {
@@ -19,7 +20,7 @@ else
 }
 
 // Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
+if ($_SERVER["REQUEST_METHOD"] == "POST") //update button
 {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];

@@ -41,7 +41,7 @@ else
 
 
 //is valid full name
-function isValidFullName($ame)
+function isValidFullName($name)
 {
     $regex = '/^[a-zA-Z\s]{3,100}$/';//regular expression
    if( preg_match($regex , $name))
@@ -80,7 +80,7 @@ function isValidEmail($email)
     else
      {
       $email1 = $email;
-  if (!filter_var($email1, FILTER_VALIDATE_EMAIL))
+  if (!filter_var($email1, FILTER_VALIDATE_EMAIL))//ali@gmail.com
   {
     return false;
   }
@@ -105,7 +105,8 @@ if(preg_match('/^[0-9]{10}+$/', $mobile)) {
 function isValidPassword($password)
 {
 // Validate password strength
-if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/', $password))
+$reg='/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/';
+if (preg_match($reg, $password))
  {
     return true;
 } 

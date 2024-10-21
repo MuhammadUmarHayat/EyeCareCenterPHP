@@ -29,7 +29,8 @@ include '../includes/doctor_navbar.php';//include footer
         <tbody>
             <?php 
             if ($appointments->num_rows > 0) {
-                while ($row = $appointments->fetch_assoc()) {
+                while ($row = $appointments->fetch_assoc())
+                 {
                     ?>
                     <tr>
                         <td><?php echo htmlspecialchars($row['id']); ?></td>

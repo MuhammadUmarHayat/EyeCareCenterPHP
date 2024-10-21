@@ -1,10 +1,9 @@
 
 <?php
 
-// Start the session
-session_start();
+
 include 'form_validation.php';//include form validation file
-include 'db_actions.php';//include config file
+include 'db_actions.php';//include database file
 if(isset($_POST['login'])) //check login button is clicked or not
 {
     //fname,lname,dob,email,password,repassword,gender,age,qual,specialization,experience
@@ -35,16 +34,18 @@ if(isEmpty($email)||isEmpty($password)||isEmpty($role))
 }
 else
 {
-
+// Start the session
+session_start();
     if($role==="admin")
     {
         if($email==="admin@admin.com" && $password==="Password@vu")
         {
             $_SESSION["user_id"] =$email;
             
-            header('Location:http://localhost/eyecare/admin/index.php');
+            header('Location:http://localhost/eyecare/admin/index.php');//admin main page
         }
     }
+
 
     if(isValidUser($email,$password,$role))
          {
@@ -53,13 +54,13 @@ else
             if($role==="doctor")
             {
                 
-                    header('Location:http://localhost/eyecare/doctor/index.php');
+                    header('Location:http://localhost/eyecare/doctor/index.php');//doctor main page
                 
             }
             if($role==="patient")
             {
                 
-                    header('Location:http://localhost/eyecare/patient/index.php');
+                    header('Location:http://localhost/eyecare/patient/index.php');//patient main page
                 
             }
          }

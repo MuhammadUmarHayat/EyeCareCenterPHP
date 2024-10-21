@@ -40,6 +40,7 @@ if (isset($_GET['status'])) {
                     <th>Current Status</th>
                     
                     <th>Actions</th>
+                    <th>Account Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,14 +53,17 @@ if (isset($_GET['status'])) {
                 <tr>
                     
                     <td><?php echo $row['patient_id']; ?></td>
-                    <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" width="50" height="50" class="img-thumbnail" /></td>
-                    <td><?php echo $row['certificate_no']; ?></td>
+                    <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['certificate_image']); ?>" width="50" height="50" class="img-thumbnail" /></td>
+                    <td><?php echo $row['certificate_no']; ?>
+                    
+                </td>
                     <td><?php echo $row['certificate_status']; ?></td>
                     
                     <td>
                         <a href="validCertifide.php?id=<?php echo $row['patient_id']; ?>" class="btn btn-sm btn-success">Valid</a>
                         <a href="NotValidCertifide.php?id=<?php echo $row['patient_id']; ?>" class="btn btn-sm btn-danger">Not Valid</a>
                     </td>
+                    <td><?php echo $row['account_status']; ?></td>
                 </tr>
                 <?php
                     }

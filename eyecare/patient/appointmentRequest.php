@@ -2,7 +2,7 @@
 include 'actions.php';//include config file
 include 'db_actions.php';
  $patient_id=start_session();
- $id = $_GET['id']; 
+ $id = $_GET['id']; //appointment id
 $result=showDrInfo($id);
 $message="";
 if ($result->num_rows > 0) 

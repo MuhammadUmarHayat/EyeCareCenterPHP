@@ -2,6 +2,7 @@
 //patient database functionalities
 
 include '../config/config.php';//include config file
+
 function showAppointments($patient_id)
 {
     global $con; // Declare $con as a global variable

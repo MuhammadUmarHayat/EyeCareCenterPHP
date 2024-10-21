@@ -5,7 +5,8 @@ echo $id= $_GET['id'];
 echo $status="not valid";
 
  $result=updateCertification($id,$status);
- if($result){
+ if($result)
+ {
     $status='success';
     header("Location: http://localhost/eyecare/admin/patientlist.php?status=" . $status);
  }

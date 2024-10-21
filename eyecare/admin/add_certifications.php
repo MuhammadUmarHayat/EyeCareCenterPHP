@@ -35,7 +35,7 @@ if(saveCertification($email,$imgContent,$certificate_no,$cer_date,$cer_status))
 {
     echo '
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Certification has been booked successfully.
+        <strong>Success!</strong> Certification has been generated successfully.
         <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
 }

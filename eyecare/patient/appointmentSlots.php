@@ -39,7 +39,7 @@ include '../includes/patient_navbar.php';//include footer
                                 <strong>Status:</strong> <?php echo $row['status']; ?><br>
                               
                             </p>
-                            <a href="appointmentRequest.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Book Appointment</a>
+                            <a href="appointmentRequest.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Send  Appointment Request</a>
                         </div>
                     </div>
                 </div>

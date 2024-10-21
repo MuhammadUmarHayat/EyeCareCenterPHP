@@ -14,10 +14,22 @@ if(isset($_POST['signup'])) //check signup button is clicked or not
     else
     {
      // die("Data is not null");
+     if (!empty($_FILES["image"]["name"]))
+     {
+        // Get file info 
+        $fileName = basename($_FILES["image"]["name"]);
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+
+        // Allow certain file formats 
+        $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+        if (in_array($fileType, $allowTypes)) 
+        {
+            $image = $_FILES['image']['tmp_name'];
+            $imgContent = addslashes(file_get_contents($image));
     
    $fname= $_POST['fname'];
    $lname= $_POST['lname'];
-  $dob = $_POST['dob'];
+   $dob = $_POST['dob'];
    $email= $_POST['email'];
    $password= $_POST['password'];//$password,$repassword
    $repassword= $_POST['repassword'];
@@ -25,7 +37,8 @@ if(isset($_POST['signup'])) //check signup button is clicked or not
    $age= $_POST['age'];
    $qual = $_POST['qual'];
    $specialization= $_POST['specialization'];  
-   $experience= $_POST['experience'];     
+   $experience= $_POST['experience'];   
+  // die("image data" );  
                                                                      //fname,lname,dob,email,password,repassword,gender,age,qual,specialization,experience
 
 if(isEmpty($fname)||isEmpty($lname)||isEmpty($dob)||isEmpty($email)||isEmpty($password)||isEmpty($repassword)||isEmpty($gender)||isEmpty($age)||isEmpty($qual)||isEmpty($specialization))
@@ -40,9 +53,12 @@ else
    if(isPasswordMached($password,$repassword))
    {
      // SaveDoctor($fname,$lname,$dob,$email,$password,$gender,$age,$qual,$specialization,$experience);
-      if(isValidPassword($password)&&isValidEmail($email))
+      if(isValidPassword($password) && isValidEmail($email))
       {
-         if(SaveDoctorInfo($fname, $lname, $dob, $email, $password, $gender, $age, $qual, $specialization, $experience))
+       // die("password matched");
+       $saveData=SaveDoctorPersonalInfo($fname, $lname, $dob, $email, $password, $gender, $age, $qual, $specialization, $experience);
+       $saveExp=SaveDoctorExperiencelInfo($email, $qual, $specialization, $experience, $imgContent);
+         if($saveData && $saveExp)
          {
             echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Success!</strong> Record is saved successfully.
@@ -73,6 +89,9 @@ else
     }
 
 }
+    }
+}
+
 
 
 ?>
@@ -90,7 +109,7 @@ include 'includes/main_navbar.php';//include footer
                 <h3 class="card-title mb-0">Doctor Registration</h3>
             </div>
             <div class="card-body">
-                <form action="doctor_registration.php" method="post">
+                <form action="doctor_registration.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="fname" class="form-label">First Name:</label>
                         <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter First name" required>
@@ -139,6 +158,14 @@ include 'includes/main_navbar.php';//include footer
                         <label for="experience" class="form-label">Experience (Years):</label>
                         <input type="number" class="form-control" id="experience" name="experience" placeholder="Enter Experience" required>
                     </div>
+                   
+                                
+                            <div class="mb-3">
+                        <label for="image" class="form-label">Select  Photo:</label>
+                        <input type="file" class="form-control" id="image" name="image"  required>
+                    </div>
+
+
                     <div class="text-center">
                         <button type="submit" name="signup" class="btn btn-success">Sign Up</button>
                     </div>

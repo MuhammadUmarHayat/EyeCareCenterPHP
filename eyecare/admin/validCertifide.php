@@ -1,7 +1,7 @@
 <?php
 include 'db_actions.php';
 
-echo $id= $_GET['id'];
+echo $id= $_GET['id'];//receive data from patientlist
 echo $status="valid";
 
  $result=updateCertification($id,$status);

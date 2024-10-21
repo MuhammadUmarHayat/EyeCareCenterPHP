@@ -4,7 +4,7 @@ include 'db_actions.php';
 $id= $_GET['id'];
 $status="completed";
 
- $result=deleteAppointment($id);
+ $result=deleteAppointment($id);//delete appointment
  if($result)
  {
     $status='success';

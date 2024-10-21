@@ -39,6 +39,7 @@ if (isset($_GET['status'])) {
                     <th>Certification No</th>
                     <th>Issue Date</th>
                     <th>Status</th>
+                    <th>Action</th>
                     
                 </tr>
             </thead>
@@ -56,6 +57,10 @@ if (isset($_GET['status'])) {
                     <td><?php echo $row['certification_no']; ?></td>
                     <td><?php echo $row['certification_date']; ?></td>
                     <td><?php echo $row['status']; ?></td>
+                    <td>
+                                <a href="editCertificate.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success">Edit</a>
+                                <a href="deleteCertificate.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger">Remove</a>
+                            </td>
                    
                 </tr>
                 <?php

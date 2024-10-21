@@ -7,8 +7,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Aboutus">AboutUs</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contactus">ContactUs</a></li>
                 <li class="nav-item"><a class="nav-link" href="patient_registration.php">patient Registration</a></li>
                 <li class="nav-item"><a class="nav-link" href="doctor_registration.php">Doctor Registration</a></li>
                 <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
